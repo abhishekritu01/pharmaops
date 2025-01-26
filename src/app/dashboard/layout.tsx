@@ -8,6 +8,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { CiShop } from "react-icons/ci";
 
+
 interface NavigationItem {
   name: string;
   href?: string;
