@@ -1,0 +1,101 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  phone     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+}
+
+
+model sells_record {
+  id            Int           @id @default(autoincrement())
+  productname   String
+  quantity      Int
+  price         Int
+  total         Int
+  discount      Float
+  paymentStatus PaymentStatus
+  type          medicineType
+  paymentType   PaymnetType
+  transactionId String? // For digital payment tracking
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+  deletedAt     DateTime?
+  capacity      String?       // New field to store the dosage/volume (e.g., 200 mg, 500 mg, 10 ml)
+}
+
+enum PaymentStatus {
+  PAID
+  UNPAID
+}
+
+enum PaymnetType {
+  CASH
+  CARD
+  UPI
+}
+
+enum medicineType {
+  // Solid Dosage Forms
+  TABLET
+  CAPSULE
+  POWDER
+  GRANULES
+  LOZENGE
+  PILL
+
+  // Liquid Dosage Forms
+  SYRUP
+  ELIXIR
+  SUSPENSION
+  EMULSION
+  SOLUTION
+  DROPS
+
+  // Semi-Solid Dosage Forms
+  OINTMENT
+  CREAM
+  GEL
+  PASTE
+  FOAM
+
+  // Gaseous Dosage Forms
+  INHALER
+  NEBULIZER_SOLUTION
+  SPRAY
+
+  // Miscellaneous Dosage Forms
+  TRANSDERMAL_PATCH
+  SUPPOSITORY
+  IMPLANT
+  MEDICATED_SHAMPOO
+  MOUTHWASH
+  GARGLE
+
+  // Specialized Forms
+  VIAL
+  AMPOULE
+  EFFERVESCENT_TABLET
+  SUBLINGUAL_TABLET
+  BUCCAL_TABLET
+  CHEWABLE_TABLET
+  DISINTEGRATING_TABLET
+  PATCH
+}
