@@ -22,6 +22,7 @@ export async function DELETE(request: NextRequest) {
       },
     });
     
+    
     return NextResponse.json({ message: 'Record deleted successfully' });
   } catch (error) {
     console.error('Error deleting record:', error);
