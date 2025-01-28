@@ -1,3 +1,4 @@
+import { Download } from "lucide-react";
 import type { Config } from "tailwindcss";
 
 export default {
@@ -11,6 +12,9 @@ export default {
       colors: {
         primary: "var(--PRIMARY)",
         primaryhover: "var(--PRIMARY-HOVER-NAV)",
+        download: "var(--DOWNLOAD)",
+        downloadhover: "var(--DOWNLOAD-HOVER)",
+
       },
     },
   },

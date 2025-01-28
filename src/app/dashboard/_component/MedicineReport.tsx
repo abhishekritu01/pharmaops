@@ -1,8 +1,11 @@
 import React from 'react'
+import Stats from './reports/Stats'
 
 const MedicineReport = () => {
   return (
-    <div>MedicineReport</div>
+    <>
+      <Stats />
+    </>
   )
 }
 

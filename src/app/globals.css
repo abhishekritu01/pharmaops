@@ -5,6 +5,9 @@
 :root {
   --PRIMARY: #0C0A09; 
   --PRIMARY-HOVER-NAV: #222121;
+  --DOWNLOAD: #18a234;
+  --DOWNLOAD-HOVER: #0f6f1f;
+  
 }
 /* 
 @media (prefers-color-scheme: dark) {
