@@ -1,7 +1,7 @@
 'use client'
 
 import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
-import { LinkIcon, PlusIcon, QuestionMarkCircleIcon } from '@heroicons/react/20/solid'
+import { LinkIcon, QuestionMarkCircleIcon } from '@heroicons/react/20/solid'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 
 interface DrawersProps {

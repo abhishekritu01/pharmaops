@@ -13,7 +13,7 @@ export async function DELETE(request: NextRequest) {
       return NextResponse.json({ message: 'Invalid ID provided' }, { status: 400 });
     }
 
-    const recordId = parseInt(id, 10); // Parse ID to integer
+    const recordId = id; // Keep ID as string
 
     // Delete the record with the specified ID
     await prisma.sells_record.delete({

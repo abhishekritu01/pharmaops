@@ -1,6 +1,6 @@
 
 
-import { PrismaClient, PaymentStatus, PaymnetType, medicineType } from '@prisma/client';
+import { PrismaClient, PaymentStatus, medicineType,PaymentType } from '@prisma/client';
 
 // Create a Prisma Client instance
 const prisma = new PrismaClient();
@@ -13,7 +13,7 @@ interface SellsRecordRequestBody {
   discount: number;
   paymentStatus: PaymentStatus;
   type: medicineType;
-  paymentType: PaymnetType;
+  paymentType: PaymentType;
   transactionId?: string;  // Optional for digital payment tracking
   capacity?: string; // Optional field for dosage/volume
 }
