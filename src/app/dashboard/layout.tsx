@@ -7,6 +7,8 @@ import { ArrowLeft, ArrowRight, ClipboardListIcon } from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
 import { CiShop } from "react-icons/ci";
+import Drawers from "./_component/Drawers";
+import { MdInventory } from "react-icons/md";
 
 
 interface NavigationItem {
@@ -40,6 +42,7 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(true);
+  const [open, setOpen] = useState(true)
 
   return (
     <div className="flex h-screen ">
@@ -147,8 +150,19 @@ const Layout = ({ children }: LayoutProps) => {
               className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
             />
           </div>
-          <div className="relative z-10 max-w-full px-8 py-12 mx-auto">
+          <div className="relative z-10 max-w-full px-8 py-12 mx-auto relative">
+            <button
+              onClick={() => setOpen(!open)}
+              className="p-2 flex items-center bg-primary text-white rounded-md absolute top-4 right-4"
+            >
+              <MdInventory className="h-3 w-3 text-white mr-2" />
+              <span className="text-xs">Inventory</span>
+            </button>
             {children}
+            <Drawers
+              open={open}
+              setOpen={setOpen}
+            />
           </div>
         </div>
 

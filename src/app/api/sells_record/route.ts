@@ -84,7 +84,7 @@ export async function GET(): Promise<Response> {
     const records = await prisma.sells_record.findMany();
     return new Response(JSON.stringify(records), { status: 200 });
   } catch (error) {
-    console.error(error);
+    console.log(error)
     return new Response(JSON.stringify({ error: 'Error fetching records' }), { status: 500 });
   }
 }
